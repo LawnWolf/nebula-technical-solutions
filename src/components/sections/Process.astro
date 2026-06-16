@@ -1,0 +1,126 @@
+---
+const steps = [
+  { num: '01', title: 'Discovery', desc: 'We dig into your vision, constraints, and goals to understand the full picture.' },
+  { num: '02', title: 'Architecture', desc: 'We design a system built for scale from the start — not bolted on later.' },
+  { num: '03', title: 'Build', desc: 'We ship iteratively with full transparency, weekly demos, and zero surprises.' },
+  { num: '04', title: 'Launch & Scale', desc: 'We deploy, monitor, and grow with you long after the initial launch.' },
+];
+---
+
+<section id="process" aria-labelledby="process-heading" class="process-section">
+  <div class="container">
+    <div class="fade-in section-header">
+      <p class="eyebrow">// HOW WE WORK</p>
+      <h2 id="process-heading">The Process</h2>
+    </div>
+
+    <div class="process-grid">
+      {steps.map((step, i) => (
+        <div class="fade-in process-step" style={`transition-delay: ${i * 0.1}s;`}>
+          {i < steps.length - 1 && <div class="process-line" aria-hidden="true"></div>}
+
+          <div class="step-circle">{step.num}</div>
+
+          <div class="glass-card step-card">
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-section {
+    padding: 120px 24px;
+    background: var(--bg-surface);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+
+  .process-step {
+    position: relative;
+    text-align: center;
+  }
+
+  .process-line {
+    position: absolute;
+    top: 32px;
+    left: calc(50% + 32px);
+    width: calc(100% + 24px - 64px);
+    height: 0;
+    border-top: 2px dashed rgba(124, 58, 237, 0.35);
+    z-index: 0;
+  }
+
+  .step-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 24px rgba(124, 58, 237, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-card {
+    padding: 24px;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 1024px) {
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-line { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+</style>

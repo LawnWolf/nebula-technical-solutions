@@ -1,0 +1,279 @@
+---
+---
+
+<section id="contact" aria-labelledby="contact-heading" class="contact-section">
+  <div class="container">
+    <div class="fade-in section-header">
+      <p class="eyebrow">// GET IN TOUCH</p>
+      <h2 id="contact-heading">Start a Conversation</h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info panel -->
+      <div class="fade-in">
+        <div class="glass-card info-card">
+          <h3>Let's Talk</h3>
+          <p class="intro">
+            We respond within one business day. No sales scripts — just a real conversation about what you're building.
+          </p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon" style="background: rgba(6,182,212,0.1); border-color: rgba(6,182,212,0.2);">📧</div>
+              <div>
+                <p class="item-label">EMAIL</p>
+                <p class="item-value">hello@nebulatechsolutions.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon" style="background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.2);">📍</div>
+              <div>
+                <p class="item-label">LOCATION</p>
+                <p class="item-value">Remote-first · United States</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon" style="background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2);">🟢</div>
+              <div>
+                <p class="item-label">AVAILABILITY</p>
+                <p class="item-value availability">Currently accepting new projects</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="fade-in" style="transition-delay: 0.1s;">
+        <form class="glass-card contact-form" aria-label="Contact form" id="contact-form">
+          <div class="form-row">
+            <div>
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required class="form-input" />
+            </div>
+            <div>
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required class="form-input" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="project-type" class="form-label">Project Type</label>
+            <select id="project-type" name="project-type" class="form-input form-select" required>
+              <option value="" disabled selected>Select a project type...</option>
+              <option value="web">Web & Digital Experience</option>
+              <option value="enterprise">Enterprise Application</option>
+              <option value="infrastructure">Cloud / Infrastructure</option>
+              <option value="devops">DevOps & CI/CD</option>
+              <option value="security">Security & Compliance</option>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell us about your project, timeline, and goals..."
+              required
+              class="form-input"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary submit-btn">
+            Send Message →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = (e.target as HTMLFormElement).querySelector('.submit-btn') as HTMLButtonElement;
+    if (btn) {
+      btn.textContent = '✓ Message Sent!';
+      btn.disabled = true;
+      btn.style.background = 'linear-gradient(135deg, #059669, #047857)';
+      btn.style.boxShadow = '0 8px 30px rgba(5, 150, 105, 0.4)';
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    padding: 120px 24px;
+    background: var(--bg-base);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .info-card {
+    padding: 40px;
+    height: 100%;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .intro {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .item-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .item-value {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .availability {
+    color: var(--accent-gold) !important;
+  }
+
+  .contact-form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .field {
+    margin-top: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .form-input {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+    resize: vertical;
+  }
+
+  .form-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .form-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.12);
+    background: rgba(6, 182, 212, 0.03);
+  }
+
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .form-select option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+  }
+
+  .submit-btn {
+    margin-top: 24px;
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

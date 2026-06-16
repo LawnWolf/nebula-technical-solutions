@@ -1,0 +1,163 @@
+---
+const team = [
+  {
+    initials: 'JL',
+    name: 'Jamel Lee',
+    badge: '✦ The Orchestration Unicorn',
+    role: 'The visionary PM who turns client chaos into beautifully scoped roadmaps. Jamel speaks both "business" and "technical" fluently — the rare unicorn who bridges the gap between strategy and execution.',
+    accent: 'var(--accent-gold)',
+    gradient: 'linear-gradient(135deg, #F59E0B, #D97706)',
+  },
+  {
+    initials: 'BP',
+    name: 'Bill Pateracki',
+    badge: '⚡ Full-Stack Sorcerer',
+    role: "A full-stack sorcerer who conjures polished UIs and bulletproof backends with equal wizardry. From database schema to pixel-perfect components, Bill's code ships fast and scales harder.",
+    accent: 'var(--accent-cyan)',
+    gradient: 'linear-gradient(135deg, #06B6D4, #0891B2)',
+  },
+  {
+    initials: 'BC',
+    name: 'Bruno Capo de Sa',
+    badge: '🛡️ Infrastructure Guru',
+    role: "The systems guru who architects infrastructure that never sleeps. Bruno's environments are tuned like Formula 1 engines — redundant, lightning-fast, and built for the extreme edge.",
+    accent: 'var(--accent-purple)',
+    gradient: 'linear-gradient(135deg, #7C3AED, #5B21B6)',
+  },
+];
+---
+
+<section id="team" aria-labelledby="team-heading" class="team-section">
+  <div class="container">
+    <div class="fade-in section-header">
+      <p class="eyebrow">// THE TEAM</p>
+      <h2 id="team-heading">The Minds Behind the Magic</h2>
+      <p class="subtitle">Small team. Massive output. Zero compromises.</p>
+    </div>
+
+    <div class="team-grid">
+      {team.map((member, i) => (
+        <article
+          class="glass-card fade-in team-card"
+          style={`transition-delay: ${i * 0.12}s;`}
+          aria-label={`${member.name} — team member`}
+        >
+          <div class="card-top-border" style={`background: ${member.gradient};`}></div>
+
+          <div class="card-body">
+            <div class="avatar" style={`background: ${member.gradient};`}>
+              {member.initials}
+            </div>
+
+            <h3>{member.name}</h3>
+
+            <span class="badge" style={`border-color: ${member.accent}; color: ${member.accent};`}>
+              {member.badge}
+            </span>
+
+            <p class="bio">{member.role}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    padding: 120px 24px;
+    background: var(--bg-base);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .team-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .card-top-border {
+    height: 3px;
+  }
+
+  .card-body {
+    padding: 36px 32px;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  .bio {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>

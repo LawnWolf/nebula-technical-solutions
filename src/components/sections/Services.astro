@@ -1,0 +1,114 @@
+---
+const services = [
+  { icon: '🌐', title: 'Web & Digital Experiences', desc: 'From pixel-perfect landing pages to complex web apps that delight and convert.' },
+  { icon: '🏢', title: 'Enterprise Applications', desc: 'Full-featured platforms with the power of AWS baked in — built for the long game.' },
+  { icon: '⚡', title: 'High Availability Architecture', desc: 'Redundant, load-balanced, fault-tolerant by design. Because downtime is not an option.' },
+  { icon: '📈', title: 'Auto-Scaling Infrastructure', desc: 'Grows with your business — no traffic spike too big, no resource wasted at rest.' },
+  { icon: '🔒', title: 'Security & Compliance', desc: 'Enterprise-grade security from day one. Audits, encryption, access control — all baked in.' },
+  { icon: '🚀', title: 'DevOps & CI/CD', desc: 'Continuous delivery pipelines that ship fast, safe, and repeatably every time.' },
+];
+---
+
+<section id="services" aria-labelledby="services-heading" class="services-section">
+  <div class="container">
+    <div class="fade-in section-header">
+      <p class="eyebrow">// CAPABILITIES</p>
+      <h2 id="services-heading">What We Build</h2>
+      <p class="subtitle">End-to-end solutions engineered for performance, resilience, and growth.</p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service, i) => (
+        <article
+          class="glass-card fade-in service-card"
+          style={`transition-delay: ${i * 0.08}s;`}
+          aria-label={service.title}
+        >
+          <div class="service-icon">{service.icon}</div>
+          <h3>{service.title}</h3>
+          <p>{service.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 120px 24px;
+    background: var(--bg-surface);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    padding: 32px;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  .service-card:hover {
+    border-left-color: var(--accent-purple) !important;
+    transform: translateY(-4px) !important;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+const stats = [
+  { value: '10x', label: 'Faster deployment than traditional shops' },
+  { value: '99.99%', label: 'Guaranteed uptime SLA' },
+  { value: '0→∞', label: 'Scaling without re-architecture' },
+  { value: 'Full Stack', label: 'Web to enterprise, one team' },
+];
+
+const features = [
+  'Zero vendor lock-in architecture',
+  'Multi-region deployment ready',
+  'Real-time observability & alerting',
+  'Infrastructure as Code (IaC)',
+  'Automated failover & recovery',
+  'SOC 2 & GDPR aligned practices',
+];
+---
+
+<section id="why-nebula" aria-labelledby="why-heading" class="why-section">
+  <div class="container">
+    <div class="fade-in section-header">
+      <p class="eyebrow">// DIFFERENTIATORS</p>
+      <h2 id="why-heading">Why Nebula?</h2>
+    </div>
+
+    <div class="stats-grid">
+      {stats.map((stat, i) => (
+        <div class="glass-card fade-in stat-block" style={`transition-delay: ${i * 0.1}s;`}>
+          <p class="stat-value gradient-text">{stat.value}</p>
+          <p class="stat-label">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="fade-in features-grid">
+      {features.map((feature) => (
+        <div class="feature-item">
+          <span class="check">✓</span>
+          <span>{feature}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-section {
+    padding: 120px 24px;
+    background: var(--bg-base);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+
+  .stat-block {
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .stat-label {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .check {
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .feature-item span:last-child {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
