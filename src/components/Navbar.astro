@@ -1,0 +1,129 @@
+---
+const navLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#why-nebula' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<nav
+  aria-label="Main navigation"
+  style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 8, 16, 0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.3s ease;
+  "
+>
+  <div style="
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  ">
+    <!-- Logo -->
+    <a
+      href="#home"
+      aria-label="Nebula home"
+      style="
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      "
+    >
+      <span style="color: var(--accent-cyan);">✦</span>
+      Nebula
+    </a>
+
+    <!-- Desktop nav links -->
+    <ul
+      role="list"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+      "
+      class="nav-links"
+    >
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            style="
+              font-family: 'Inter', sans-serif;
+              font-size: 0.9rem;
+              font-weight: 500;
+              color: var(--text-muted);
+              text-decoration: none;
+              transition: color 0.2s ease;
+            "
+            class="nav-link"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA button -->
+    <a
+      href="#contact"
+      style="
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        background:
+          linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+          linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)) border-box;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
+      "
+      class="nav-cta"
+    >
+      Launch a Project
+    </a>
+  </div>
+</nav>
+
+<!-- Mobile hamburger (hidden on desktop, shown on small screens) -->
+<style>
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none !important;
+    }
+    .nav-cta {
+      font-size: 0.8rem !important;
+      padding: 8px 14px !important;
+    }
+  }
+  .nav-link:hover {
+    color: var(--text-primary) !important;
+  }
+  .nav-cta:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+</style>

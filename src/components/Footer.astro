@@ -1,0 +1,130 @@
+---
+const footerLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'Services', href: '#services' },
+  { label: 'About', href: '#why-nebula' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<footer
+  aria-label="Site footer"
+  style="
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    padding: 64px 24px 32px;
+  "
+>
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <!-- Top row -->
+    <div style="
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 48px;
+    " class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <a
+          href="#home"
+          style="
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+          "
+        >
+          <span style="color: var(--accent-cyan);">✦</span>
+          Nebula
+        </a>
+        <p style="
+          font-family: 'Inter', sans-serif;
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          max-width: 320px;
+          line-height: 1.65;
+        ">
+          Building tomorrow's infrastructure, today.
+        </p>
+      </div>
+
+      <!-- Nav links -->
+      <nav aria-label="Footer navigation">
+        <ul role="list" style="list-style: none; display: flex; gap: 32px; flex-wrap: wrap;" class="footer-links">
+          {footerLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                style="
+                  font-family: 'Inter', sans-serif;
+                  font-size: 0.9rem;
+                  color: var(--text-muted);
+                  text-decoration: none;
+                  transition: color 0.2s ease;
+                "
+                class="footer-link"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Divider -->
+    <div style="
+      height: 1px;
+      background: var(--border-subtle);
+      margin-bottom: 28px;
+    "></div>
+
+    <!-- Bottom row -->
+    <div style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    ">
+      <p style="
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      ">
+        © 2025 Nebula Technical Solutions. All rights reserved.
+      </p>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <span style="
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          color: var(--accent-cyan);
+          opacity: 0.7;
+        ">
+          // built with ✦ precision
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-link:hover {
+    color: var(--text-primary) !important;
+  }
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .footer-links {
+      gap: 20px !important;
+    }
+  }
+</style>
